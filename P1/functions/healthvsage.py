@@ -5,14 +5,14 @@ import matplotlib.pyplot as plt
 
 csv_path = 
 
-# Load CSV
+
 df = pd.read_csv(csv_path)
 df.columns = df.columns.str.strip()
 
 # Automatically detect year columns
 year_cols = [col for col in df.columns if col.isdigit()]
 
-# Keep only rows that are actual age groups, ignore 'Total' and other columns
+
 age_rows = df[df['Age Group'].str.strip().str.contains(r'\d')]
 
 # Function to convert age group to midpoint
@@ -26,7 +26,7 @@ def age_midpoint(age_group):
         return float(low) + 10  # approximate midpoint for open-ended
     return np.nan
 
-# Prepare vectors
+# Preparing vectors!
 age_vector = np.array([age_midpoint(r) for r in age_rows['Age Group']])
 cost_vector = age_rows[year_cols].mean(axis=1).values  # average across years
 
@@ -34,7 +34,7 @@ cost_vector = age_rows[year_cols].mean(axis=1).values  # average across years
 def model(age, a, b, c):
     return a * np.exp(b * age) + c
 
-# Initial guess
+# Initial guess, eh maybe
 p0 = [min(cost_vector), 0.01, 0]  # ensure b > 0
 
 # Fit curve
