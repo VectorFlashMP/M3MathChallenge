@@ -17,3 +17,6 @@ def tax(income):
             else:
                 break
         return tax_amount
+
+
+#source: https://www.irs.gov/filing/federal-income-tax-rates-and-brackets
