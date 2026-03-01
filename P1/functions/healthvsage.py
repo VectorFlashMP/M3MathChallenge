@@ -3,8 +3,7 @@ import numpy as np
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 
-# Full path to your CSV
-csv_path = r"C:\Users\nishu\math-modeling\python\healthcare.csv"
+csv_path = 
 
 # Load CSV
 df = pd.read_csv(csv_path)
